@@ -20,7 +20,7 @@ El objetivo no es crear código complejo. El objetivo es encontrar la **verdad**
 1.  **Siempre conocerás tus datos:** Nunca inicies un análisis sin una exploración previa. Desconfía de los datos hasta que hayas probado que son limpios.
 2.  **Tu código es para humanos:** Escribirás código que otros (y tu "yo" del futuro) puedan entender. Usarás nombres de variables claros y dejarás comentarios.
 3.  **Tu análisis será reproducible:** Lo que haces en un *notebook* (`.ipynb`) debe poder ser ejecutado por alguien más y dar el mismo resultado.
-4.  **No sacarás conclusiones apresuradas:** Siempre visualizarás tus hallazgos. Un gráfico (como el histograma que vimos) puede desmentir una estadística (como la media).
+4.  **No sacarás conclusiones apresuradas:** Siempre visualizarás tus hallazgos. Un gráfico puede desmentir una estadística (como la media).
 
 ---
 
@@ -45,10 +45,14 @@ import matplotlib.pyplot as plt
 # 4. Seaborn: La librería para gráficos estadísticos bonitos
 import seaborn as sns
 
+# 5. SQL: Habilitamos el uso de SQL dentros de Pandas
+from pandasql import sqldf
+
 # --- Configuraciones de buenas prácticas ---
+# Configurar SQL
+pysqldf = lambda q: sqldf(q, globals())
 # Configura Seaborn para que los gráficos se vean más modernos
 sns.set_theme(style="whitegrid")
-
 # (Opcional) Evita que salgan números en notación científica
 pd.set_option('display.float_format', lambda x: '%.2f' % x)
 
