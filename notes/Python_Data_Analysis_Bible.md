@@ -7,6 +7,7 @@ Un Analista de Datos es un **traductor**. Habla el lenguaje de los datos (númer
 ### ¿Por Qué Python? 🐍
 
 Python es el idioma universal del análisis. Es un **bisturí suizo** 🇨🇭:
+
 * Es **legible** y fácil de escribir, por lo que tu código se documenta solo.
 * Es **poderoso** y se integra con todo (bases de datos, web, IA).
 * Tiene un **ecosistema** de librerías (`Pandas`, `NumPy`, `Seaborn`) que hacen el 90% del trabajo pesado por ti.
@@ -17,17 +18,19 @@ El objetivo no es crear código complejo. El objetivo es encontrar la **verdad**
 
 ### El Juramento: Las Buenas Prácticas
 
-1.  **Siempre conocerás tus datos:** Nunca inicies un análisis sin una exploración previa. Desconfía de los datos hasta que hayas probado que son limpios.
-2.  **Tu código es para humanos:** Escribirás código que otros (y tu "yo" del futuro) puedan entender. Usarás nombres de variables claros y dejarás comentarios.
-3.  **Tu análisis será reproducible:** Lo que haces en un *notebook* (`.ipynb`) debe poder ser ejecutado por alguien más y dar el mismo resultado.
-4.  **No sacarás conclusiones apresuradas:** Siempre visualizarás tus hallazgos. Un gráfico puede desmentir una estadística (como la media).
+1. **Siempre conocerás tus datos:** Nunca inicies un análisis sin una exploración previa. Desconfía de los datos hasta que hayas probado que son limpios.
+2. **Tu código es para humanos:** Escribirás código que otros (y tu "yo" del futuro) puedan entender. Usarás nombres de variables claros y dejarás comentarios.
+3. **Tu análisis será reproducible:** Lo que haces en un *notebook* (`.ipynb`) debe poder ser ejecutado por alguien más y dar el mismo resultado.
+4. **No sacarás conclusiones apresuradas:** Siempre visualizarás tus hallazgos. Un gráfico puede desmentir una estadística (como la media).
 
 ---
 
 ## El Ritual: El Flujo de Trabajo del Analista
+
 Este es el proceso paso a paso, desde la pantalla en blanco hasta el *insight* final.
 
 ### Paso 0: La Invocación (Importar Librerías)
+
 Todo análisis comienza con la misma invocación. Abres tu Notebook (`.ipynb`) y llamas a tus herramientas.
 
 ```python
@@ -60,6 +63,7 @@ print("Librerías listas. Taller abierto.")
 ```
 
 ### Paso 1: La Adquisición (Cargar los Datos)
+
 Debes traer el "material en bruto" (tus archivos) a tu taller (el DataFrame de Pandas).
 
 ```python
@@ -73,6 +77,7 @@ df = pd.read_excel('nombre_del_archivo.xlsx', sheet_name='Hoja1')
 ```
 
 ### Paso 2: El Vistazo (La Primera Inspección)
+
 Acabas de recibir una caja. Antes de usar su contenido, la abres y miras qué hay dentro.
 
 ```python
@@ -97,6 +102,7 @@ print(df.info())
 ```
 
 ### Paso 3: La Radiografía (Resumen Estadístico)
+
 Ahora que sabes qué hay, veamos cómo se comportan los datos.
 
 ```python
@@ -114,6 +120,7 @@ print(df['Competition'].value_counts())
 ```
 
 ### Paso 4: La Limpieza (El 80% del Trabajo)
+
 Rara vez los datos vienen listos para usar. Debes ser un cirujano y arreglarlos.
 
 ```python
@@ -155,6 +162,7 @@ df_limpio = df_limpio.drop_duplicates()
 ```
 
 ### Paso 5: La Interrogación (Análisis y NumPy)
+
 Ahora que los datos están limpios, les hacemos preguntas. Aquí es donde Pandas (el coche) usa el motor de NumPy (los cálculos).
 
 ```python
@@ -197,6 +205,7 @@ print(df_agrupado)
 ```
 
 ### Paso 6: La Revelación (Visualización con Matplotlib/Seaborn)
+
 Los números son abstractos. Las imágenes cuentan historias.
 El Ritual de Matplotlib: Casi todos los gráficos de Seaborn terminan con comandos de Matplotlib (plt) para afinarlos.
 
@@ -209,7 +218,9 @@ plt.xlabel('Etiqueta del Eje X')
 plt.ylabel('Etiqueta del Eje Y')
 plt.show() # 4. Muestra el gráfico
 ```
+
 #### Pregunta 1: ¿Cómo se distribuyen mis datos? (Univariado)
+
 Herramienta: Histograma o KDE (Kernel Density Estimate)
 
 ```python
@@ -225,6 +236,7 @@ plt.show()
 ```
 
 #### Pregunta 2: ¿Hay relación entre dos variables? (Bivariado)
+
 Herramienta: Gráfico de Dispersión (Scatterplot)
 
 ```python
@@ -238,6 +250,7 @@ plt.show()
 ```
 
 #### Pregunta 3: ¿Cómo se comparan estas categorías?
+
 Herramienta: Gráfico de Barras (Barplot)
 
 ```python
@@ -253,6 +266,7 @@ plt.show()
 ```
 
 #### Pregunta 4: ¿Cómo se distribuyen las categorías?
+
 Herramienta: Gráfico de Conteo (Countplot)
 
 ```python
@@ -266,6 +280,7 @@ plt.show()
 ```
 
 #### Pregunta 5: ¿Cómo es la distribución por categoría?
+
 Herramienta: Gráfico de Cajas (Boxplot) (Este es genial para comparar medianas y detectar outliers por grupo)
 
 ```python
@@ -280,8 +295,11 @@ plt.ylim(0, 2000)
 plt.show()
 ```
 
-### Paso 7: El Arte de Unir (Combinando Múltiples Archivos) 
-Rara vez todos tus datos estarán en un solo CSV. La herramienta clave es pd.merge().
+### Paso 7: El Arte de Unir (Combinando Múltiples Archivos)
+
+Rara vez todos tus datos estarán en un solo CSV.
+
+#### La herramienta clave es `pd.merge()`
 
 ```python
 # --- Paso Adicional: Uniendo Múltiples Fuentes ---
@@ -303,7 +321,89 @@ df_completo = pd.merge(
 
 print(df_completo.head())
 ```
+
+#### `pd.concat()` (Concatenar)
+
+* **¿Qué es?** Es la herramienta para **"pegar" o "apilar"** DataFrames, ya sea uno encima del otro (verticalmente) o uno al lado del otro (horizontalmente).
+* **Analogía:** Piensa en `pd.concat()` como **pegar hojas de papel**.
+  * **Unión Vertical (`axis=0`)**: Tienes dos hojas de asistencia (una de enero, otra de febrero) con las **mismas columnas** (Nombre, DNI, Asistencia). `pd.concat` las pega una debajo of the otra para crear una sola lista más larga (enero + febrero).
+  * **Unión Horizontal (`axis=1`)**: Tienes una hoja con los *nombres* de los estudiantes y otra hoja con sus *notas*. Ambas tienen el **mismo índice** (el mismo orden). `pd.concat` las pega una al lado de la otra para crear una tabla más ancha.
+* **Uso Principal:** Apilar datos que tienen la misma estructura (ej. `ventas_2024.csv` y `ventas_2025.csv`).
+
+```python
+# Ejemplo de Concatenación Vertical (la más común)
+
+# Datos de ventas del primer trimestre
+df_q1 = pd.DataFrame({
+    'id_cliente': ['A', 'B', 'C'],
+    'venta': [100, 200, 150]
+})
+
+# Datos de ventas del segundo trimestre
+df_q2 = pd.DataFrame({
+    'id_cliente': ['A', 'D', 'E'],
+    'venta': [50, 300, 100]
+})
+
+# Concatenamos los dos trimestres para tener un historial completo
+# ignore_index=True es importante para crear un nuevo índice (0, 1, 2, 3, 4, 5)
+df_total_año = pd.concat([df_q1, df_q2], ignore_index=True)
+
+print(df_total_año)
+#  id_cliente  venta
+#0          A    100
+#1          B    200
+#2          C    150
+#3          A     50
+#4          D    300
+#5          E    100 
+```
+
+#### `df.join()` (Unir por Índice)
+
+* **¿Qué es?** Es un atajo de `pd.merge()` que se especializa en unir DataFrames basándose en sus **índices (index)** en lugar de columnas.
+* **Analogía:** Es un `VLOOKUP` (BUSCARV) de Excel donde la clave de búsqueda no es una columna, sino el **número de fila (o la etiqueta del índice)**.
+* **Uso Principal:** Cuando tienes dos tablas donde las filas ya están alineadas por un índice común (ej. `id_cliente`) y quieres añadir columnas de una a la otra.
+* **Diferencia clave con `merge`:** `df1.join(df2)` une el índice de `df1` con el índice de `df2` por defecto. `pd.merge()` une columnas de `df1` con columnas de `df2`.
+
+```python
+# Ejemplo de Join por Índice
+
+# Datos de clientes, indexados por 'id_cliente'
+df_clientes = pd.DataFrame({
+    'nombre': ['Ana', 'Juan', 'Elena'],
+    'email': ['ana@mail.com', 'juan@mail.com', 'elena@mail.com']
+}, index=['c1', 'c2', 'c3'])
+df_clientes.index.name = 'id_cliente'
+
+# Datos demográficos, también indexados por 'id_cliente'
+df_demograficos = pd.DataFrame({
+    'edad': [28, 34, 45],
+    'ciudad': ['Madrid', 'Lima', 'Bogotá']
+}, index=['c1', 'c2', 'c3'])
+df_demograficos.index.name = 'id_cliente'
+
+# Usamos .join() para "pegar" las columnas de df_demograficos a df_clientes
+# Como ambos tienen el mismo índice, es automático.
+df_perfil_completo = df_clientes.join(df_demograficos)
+
+print(df_perfil_completo)
+
+#            nombre            email  edad  ciudad
+#id_cliente
+#c1            Ana     ana@mail.com    28  Madrid
+#c2           Juan    juan@mail.com    34    Lima
+#c3          Elena   elena@mail.com    45  Bogotá
+```
+
+**`merge` vs. `join` vs. `concat` (El Resumen)**
+
+* pd.concat(): "Apilar" o "Pegar" (como apilar bloques de LEGO).
+* pd.merge(): "Fusionar" (como un JOIN de SQL). Es la más potente y flexible. Se basa en columnas con valores comunes (ej. 'id_cliente' en ambas tablas).
+* df.join(): "Unir" (como un VLOOKUP). Es un atajo para merge cuando la unión se basa en los índices (las etiquetas de las filas).
+
 ### Paso 8: El Dominio del Tiempo (Manejo de Fechas y Horas)
+
 Los datos de series temporales deben ser tratados de forma especial. La herramienta clave es pd.to_datetime().
 
 ```python
@@ -330,7 +430,8 @@ df_ventas_mensuales = df_completo.resample('M')['total_venta'].sum()
 print(df_ventas_mensuales)
 ```
 
-### Paso 9: La Conclusión (Guardar y Comunicar) 
+### Paso 9: La Conclusión (Guardar y Comunicar)
+
 Has encontrado la verdad. Ahora, guárdala y prepara tu informe.
 
 ```python
@@ -349,6 +450,7 @@ print("Análisis completado. Archivos limpios y de resultados guardados.")
 ```
 
 ### Paso 10: El Informe (La Comunicación)
+
 El análisis no está completo hasta que se comunica. En tu notebook, añade una celda de Markdown al final y escribe tus conclusiones clave.
 
 #### Reporte Ejecutivo: Análisis de Keywords de Google Ads
