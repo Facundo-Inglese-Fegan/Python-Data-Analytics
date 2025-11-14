@@ -464,3 +464,4 @@ A continuación, se presentan los hallazgos clave del análisis:
 * **Competencia vs. Crecimiento:** No se encontró una correlación clara entre el nivel de competencia de una keyword y su crecimiento interanual. Esto sugiere que las keywords de alta competencia no crecen necesariamente menos que las de baja competencia.
 
 * **Calidad de Datos:** Se limpiaron y estandarizaron `X` columnas, incluyendo la conversión de `yoy_change` a formato numérico y el renombrado de 6 columnas para facilitar el análisis SQL.
+
