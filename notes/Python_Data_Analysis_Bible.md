@@ -465,3 +465,4 @@ A continuación, se presentan los hallazgos clave del análisis:
 
 * **Calidad de Datos:** Se limpiaron y estandarizaron `X` columnas, incluyendo la conversión de `yoy_change` a formato numérico y el renombrado de 6 columnas para facilitar el análisis SQL.
 
+
